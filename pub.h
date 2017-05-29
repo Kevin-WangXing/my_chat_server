@@ -8,6 +8,12 @@
 #ifndef PUB_H_
 #define PUB_H_
 
+
+int signal1(int signo, void (*func)(int));
+void catch_Signal(int Sign);
 void setdaemon();
+
+int socket_create(int port);
+
 
 #endif /* PUB_H_ */

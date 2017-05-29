@@ -3,7 +3,8 @@
 CC = g++
 
 SRCS = qqserver.cpp\
-		pub.cpp
+		pub.cpp\
+		work.cpp
 
 OBJS = $(SRCS: .cpp=.o)
 
