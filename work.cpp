@@ -53,7 +53,17 @@ int work::socket_accept()
 
 int work::socket_recv(int st)
 {
-	return 1;
+	struct msg_t msg;
+	memset(&msg, 0, sizeof(msg));
+	ssize_t rc = recv(st, (char *)&msg, sizeof(msg), 0);//接受来自client socket发送来的消息
+
+	printf("msg.head[0] = %d\n", msg.head[0]);
+	printf("msg.head[1] = %d\n", msg.head[1]);
+	printf("msg.head[2] = %d\n", msg.head[2]);
+	printf("msg.head[3] = %d\n", msg.head[3]);
+	printf("msg.body = %d\n", msg.body);
+
+	return rc;
 }
 
 void work::user_logout(int st)//client socket 连接断开
