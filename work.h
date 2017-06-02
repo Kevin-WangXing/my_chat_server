@@ -26,6 +26,11 @@ public:
 	void run();
 
 private:
+	void fix_socket_client(int index, int st);//将accept的客户端链接安装到socket_client的数组中
+	void broadcast_user_status();
+	void sendmsg(const struct msg_t *msg, ssize_t msglen);
+	int auth_passwd(int uerid, const char *passwd);//验证用户密码
+	void loginmsg(int st, int o_userid, const char *passwd);
 	int setnonblocking(int st);//将socket设置为非阻塞
 	int socket_accept();
 	int socket_recv(int st);
